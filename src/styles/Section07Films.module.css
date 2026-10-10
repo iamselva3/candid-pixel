@@ -1,0 +1,293 @@
+.filmsSection {
+  position: relative;
+  width: 100vw;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: var(--color-black-pure);
+  padding: clamp(3rem, 6vh, 5rem) var(--section-padding-x);
+  overflow: hidden;
+}
+
+/* Background Media & Vignette */
+.bgMediaStage {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.bgPosterImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: contrast(1.1) brightness(0.45);
+}
+
+.bgDarkTint {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(11, 31, 58, 0.4) 0%, rgba(5, 5, 7, 0.85) 85%);
+}
+
+.filmAnamorphicLines {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(230, 200, 119, 0.03) 50%, transparent 51%);
+  background-size: 100% 4px;
+}
+
+/* Center Stage */
+.centerStage {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 2rem;
+  margin: auto 0;
+}
+
+.sectionHeaderBadge {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.indexNum {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--color-gold-light);
+  font-weight: 700;
+  border: 1px solid rgba(230, 200, 119, 0.3);
+  padding: 0.15rem 0.5rem;
+  border-radius: 2px;
+}
+
+.badgeText {
+  font-family: var(--font-sans);
+  font-size: var(--type-ui-label);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--color-gold-light);
+  font-weight: 600;
+}
+
+.centerCineTitle {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  max-width: 800px;
+}
+
+.mainTitle {
+  font-size: clamp(2.8rem, 6.5vw, 6.5rem);
+  font-family: var(--font-display-serif);
+  line-height: 1;
+  color: var(--color-text-ivory);
+}
+
+.subTitle {
+  font-family: var(--font-editorial-serif);
+  font-size: clamp(1.1rem, 1.8vw, 1.6rem);
+  color: var(--color-text-muted);
+  font-style: italic;
+}
+
+/* Play Button */
+.playButton {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+.playPulseRing {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  border: 1px solid rgba(230, 200, 119, 0.4);
+  animation: pulsePlay 2.5s infinite;
+}
+
+.playInner {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: var(--grad-gold-metallic);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 5px;
+  box-shadow: 0 0 35px rgba(201, 162, 75, 0.7);
+  transition: transform 0.35s var(--ease-cinematic);
+}
+
+.playButton:hover .playInner {
+  transform: scale(1.1);
+  box-shadow: 0 0 50px rgba(230, 200, 119, 0.9);
+}
+
+.playLabel {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  color: var(--color-gold-sheen);
+  font-weight: 600;
+}
+
+/* Filmstrip Footer */
+.filmstripRow {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+}
+
+.filmstripHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  color: var(--color-text-muted);
+}
+
+.stripTrack {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+  scrollbar-width: thin;
+}
+
+.chapterCard {
+  flex-shrink: 0;
+  width: 240px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  transition: transform 0.3s ease;
+}
+
+.chapterCard:hover {
+  transform: translateY(-4px);
+}
+
+.chapterThumbBox {
+  position: relative;
+  width: 100%;
+  height: 130px;
+  border-radius: 2px;
+  overflow: hidden;
+  border: 1px solid rgba(230, 200, 119, 0.2);
+}
+
+.chapterThumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.8);
+  transition: filter 0.3s;
+}
+
+.chapterCard:hover .chapterThumb {
+  filter: brightness(1.05);
+}
+
+.timecodeStamp {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  background: rgba(5, 5, 7, 0.85);
+  padding: 0.2rem 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  color: var(--color-gold-light);
+  border-radius: 2px;
+}
+
+.chapterInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.chapterTitle {
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-text-ivory);
+}
+
+.chapterCouple {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  color: var(--color-text-dim);
+}
+
+/* Video Lightbox Player Overlay */
+.videoLightboxOverlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(5, 5, 7, 0.96);
+  z-index: 99999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.closeVideoBtn {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  letter-spacing: var(--tracking-wider);
+  color: var(--color-gold-light);
+  border: 1px solid rgba(230, 200, 119, 0.3);
+  padding: 0.5rem 1rem;
+  border-radius: 30px;
+}
+
+.videoPlayerContainer {
+  width: min(90vw, 1100px);
+  aspect-ratio: 16 / 9;
+  background: black;
+  border: 1px solid rgba(230, 200, 119, 0.35);
+  box-shadow: 0 0 50px rgba(5, 5, 7, 0.9);
+}
+
+.actualVideo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@keyframes pulsePlay {
+  0% { transform: translateX(-50%) scale(0.9); opacity: 0.8; }
+  100% { transform: translateX(-50%) scale(1.35); opacity: 0; }
+}

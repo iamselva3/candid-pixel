@@ -1,0 +1,141 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--nav-height);
+  z-index: 990;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: rgba(5, 7, 12, 0.90);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(230, 200, 119, 0.16);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.6);
+  transition: transform 0.45s var(--ease-cinematic), background-color 0.4s ease;
+  will-change: transform;
+}
+
+.navbar.hidden {
+  transform: translateY(-100%);
+}
+
+.navbar.scrolled {
+  background-color: rgba(4, 6, 10, 0.96);
+  border-bottom-color: rgba(230, 200, 119, 0.24);
+}
+
+.navContainer {
+  height: 100%;
+  padding: 0 var(--section-padding-x);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Brand Link & Logo Image */
+.brandLink {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 0.4rem 0;
+}
+
+.logoMark {
+  height: clamp(38px, 4.6vh, 46px);
+  width: auto;
+  object-fit: contain;
+  transition: transform 0.4s var(--ease-cinematic), filter 0.4s ease;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.5));
+}
+
+.brandLink:hover .logoMark {
+  transform: scale(1.04);
+  filter: drop-shadow(0 0 16px rgba(230, 200, 119, 0.55));
+}
+
+
+
+/* Round Magnetic Menu Button */
+.menuButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.25rem;
+}
+
+.menuCircle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1px solid rgba(230, 200, 119, 0.35);
+  background: rgba(11, 31, 58, 0.5);
+  backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  transition: all 0.35s var(--ease-cinematic);
+}
+
+.menuDot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: var(--color-gold-light);
+  transition: transform 0.3s ease;
+}
+
+.menuText {
+  font-family: var(--font-sans);
+  font-size: 0.58rem;
+  letter-spacing: 0.25em;
+  font-weight: 600;
+  color: var(--color-text-ivory);
+  text-transform: uppercase;
+}
+
+.menuButton:hover .menuCircle {
+  border-color: var(--color-gold-sheen);
+  background: rgba(22, 53, 94, 0.8);
+  box-shadow: 0 0 16px rgba(201, 162, 75, 0.4);
+}
+
+.menuButton.active .menuCircle {
+  border-color: var(--color-gold-light);
+  background: var(--color-gold-light);
+}
+
+.menuButton.active .menuText,
+.menuButton.active .menuDot {
+  color: var(--color-black-pure);
+  background-color: var(--color-black-pure);
+}
+
+/* Gold Active Underline */
+.goldNavBorder {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(201, 162, 75, 0.25) 30%, rgba(230, 200, 119, 0.6) 50%, rgba(201, 162, 75, 0.25) 70%, transparent 100%);
+  opacity: 0.7;
+}
+
+@keyframes pulseAperture {
+  0%, 100% { transform: scale(1); opacity: 0.9; }
+  50% { transform: scale(1.4); opacity: 0.3; }
+}
+
+@media (max-width: 768px) {
+  .centerBadge {
+    display: none;
+  }
+  .logoMark {
+    height: 38px;
+  }
+  .menuCircle {
+    width: 44px;
+    height: 44px;
+  }
+}

@@ -1,0 +1,236 @@
+.splashContainer {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  height: 100svh;
+  background-color: var(--color-black-pure);
+  z-index: 99999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  user-select: none;
+}
+
+/* Film Grain Overlay */
+.grain {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background-image: url('data:image/svg+xml,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)" opacity="0.08"/%3E%3C/svg%3E');
+  z-index: 10;
+}
+
+/* Shutter Flash Whiteout Layer */
+.shutterFlash {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, #FFFFFF 0%, rgba(245, 229, 184, 0.4) 60%, transparent 100%);
+  pointer-events: none;
+  opacity: 0;
+  z-index: 50;
+}
+
+/* Aperture Iris Wipe Mask */
+.irisMask {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at center, transparent 30%, rgba(5, 5, 7, 0.95) 90%);
+  z-index: 15;
+}
+
+/* Vertical Gold Hairline SVG */
+.hairlineSvg {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 100%;
+  pointer-events: none;
+  z-index: 12;
+}
+
+/* Central Stage Container */
+.centerStage {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 90vw;
+  max-width: 680px;
+  height: 380px;
+  z-index: 20;
+}
+
+/* Atmospheric Navy Glow */
+.cameraBodyGlow {
+  position: absolute;
+  top: 50%;
+  left: 30%;
+  transform: translate(-50%, -50%);
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(22, 53, 94, 0.55) 0%, rgba(11, 31, 58, 0.2) 65%, transparent 100%);
+  filter: blur(35px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Brushed Gold Shimmer Ray */
+.shimmerSweep {
+  position: absolute;
+  top: 25%;
+  left: 20%;
+  width: 140px;
+  height: 140px;
+  background: linear-gradient(135deg, transparent 20%, rgba(245, 229, 184, 0.6) 50%, transparent 80%);
+  filter: blur(10px);
+  pointer-events: none;
+  z-index: 8;
+}
+
+/* Focus Rings SVG */
+.focusRingsSvg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 480px;
+  height: 480px;
+  pointer-events: none;
+  z-index: 6;
+}
+
+/* Logo Base Wrapper */
+.logoBaseWrapper {
+  position: relative;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+}
+
+.logoImg {
+  max-width: 460px;
+  width: 82vw;
+  height: auto;
+  object-fit: contain;
+  /* KEY REQUIREMENT: mix-blend-mode: screen dissolves black background perfectly */
+  mix-blend-mode: screen;
+  filter: contrast(1.1) brightness(1.05);
+}
+
+/* Tracked STUDIOS Ghost Accent */
+.studiosGhost {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  letter-spacing: 0.65em;
+  color: var(--color-gold-light);
+  margin-top: 1.5rem;
+  text-transform: uppercase;
+  font-weight: 500;
+  text-shadow: 0 0 15px rgba(201, 162, 75, 0.4);
+}
+
+/* Progress Tray */
+.progressTray {
+  position: absolute;
+  bottom: clamp(2rem, 6vh, 4rem);
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(84vw, 420px);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  z-index: 30;
+}
+
+.counterRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  color: var(--color-text-muted);
+}
+
+.counterDigits {
+  color: var(--color-gold-light);
+  font-weight: 600;
+}
+
+.progressLineTrack {
+  width: 100%;
+  height: 1px;
+  background: rgba(230, 200, 119, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+.progressLineFill {
+  height: 100%;
+  background: var(--grad-gold-metallic);
+  box-shadow: 0 0 10px rgba(201, 162, 75, 0.7);
+  transition: width 0.05s linear;
+}
+
+/* Skip Button */
+.skipBtn {
+  position: absolute;
+  top: clamp(1.5rem, 4vh, 3rem);
+  right: clamp(1.5rem, 4vw, 3rem);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  padding: 0.6rem 1.2rem;
+  border: 1px solid rgba(201, 162, 75, 0.25);
+  border-radius: 40px;
+  background: rgba(11, 31, 58, 0.4);
+  backdrop-filter: blur(8px);
+  transition: all 0.3s var(--ease-cinematic);
+  z-index: 40;
+}
+
+.skipBtn:hover {
+  color: var(--color-text-ivory);
+  border-color: var(--color-gold-light);
+  background: rgba(22, 53, 94, 0.6);
+  transform: translateY(-2px);
+}
+
+/* Responsive Scaling for Mobile Screens */
+@media (max-width: 640px) {
+  .centerStage {
+    max-width: 95vw;
+    height: 300px;
+  }
+  .logoImg {
+    max-width: 320px;
+  }
+  .focusRingsSvg {
+    width: 340px;
+    height: 340px;
+  }
+  .studiosGhost {
+    font-size: 0.65rem;
+    letter-spacing: 0.4em;
+  }
+  .progressTray {
+    width: 88vw;
+  }
+}

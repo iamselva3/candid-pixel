@@ -1,0 +1,169 @@
+.teamSection {
+  position: relative;
+  width: 100vw;
+  min-height: 100vh;
+  background-color: var(--color-black-pure);
+  padding: var(--section-padding-y) var(--section-padding-x);
+}
+
+.teamWrapper {
+  max-width: 1350px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.sectionHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  max-width: 750px;
+}
+
+.badgeRow {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.indexNum {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--color-gold-light);
+  font-weight: 700;
+  border: 1px solid rgba(230, 200, 119, 0.3);
+  padding: 0.15rem 0.5rem;
+  border-radius: 2px;
+}
+
+.badgeText {
+  font-family: var(--font-sans);
+  font-size: var(--type-ui-label);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--color-gold-light);
+  font-weight: 600;
+}
+
+.title {
+  font-family: var(--font-display-serif);
+  font-size: var(--type-h1);
+  color: var(--color-text-ivory);
+  line-height: 1;
+}
+
+.subtitle {
+  font-size: var(--type-body-lg);
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+/* Team Grid */
+.teamGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: clamp(2rem, 3.5vw, 3.5rem);
+}
+
+.memberCard {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  cursor: pointer;
+}
+
+.portraitFrame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  border-radius: 3px;
+  overflow: hidden;
+  border: 1px solid rgba(230, 200, 119, 0.2);
+  background-color: var(--color-navy-deep);
+  box-shadow: 0 15px 35px rgba(5, 5, 7, 0.7);
+}
+
+.portraitSharp {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+  filter: grayscale(100%) contrast(1.15) brightness(0.85);
+  transition: filter 0.7s var(--ease-cinematic), transform 0.7s var(--ease-cinematic);
+}
+
+/* Halftone-to-Sharp Transition */
+.halftoneLayer {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, #C9A24B 1.4px, transparent 1.4px);
+  background-size: 5px 5px;
+  opacity: 0.45;
+  mix-blend-mode: color-dodge;
+  transition: opacity 0.6s ease;
+  pointer-events: none;
+}
+
+.portraitVignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, transparent 30%, rgba(5, 5, 7, 0.6) 100%);
+  pointer-events: none;
+}
+
+.memberCard:hover .portraitSharp {
+  filter: grayscale(0%) contrast(1.05) brightness(0.98);
+  transform: scale(1.04);
+}
+
+.memberCard:hover .halftoneLayer {
+  opacity: 0;
+}
+
+.expBadge {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  background: rgba(11, 31, 58, 0.85);
+  backdrop-filter: blur(8px);
+  padding: 0.25rem 0.65rem;
+  border-radius: 2px;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  color: var(--color-gold-light);
+  border: 1px solid rgba(230, 200, 119, 0.2);
+}
+
+.memberInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.memberName {
+  font-family: var(--font-display-serif);
+  font-size: 1.55rem;
+  color: var(--color-text-ivory);
+  transition: color 0.3s;
+}
+
+.memberCard:hover .memberName {
+  color: var(--color-gold-sheen);
+}
+
+.memberRole {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--color-gold-light);
+  font-weight: 500;
+}
+
+@media (max-width: 640px) {
+  .teamGrid {
+    grid-template-columns: 1fr;
+  }
+}

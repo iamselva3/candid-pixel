@@ -1,0 +1,306 @@
+.bookingSection {
+  position: relative;
+  width: 100vw;
+  min-height: 100vh;
+  background-color: var(--color-navy-deep);
+  padding: var(--section-padding-y) var(--section-padding-x);
+}
+
+.bookingWrapper {
+  max-width: 1350px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: clamp(3rem, 6vw, 7rem);
+  align-items: flex-start;
+}
+
+/* Info Column */
+.infoCol {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.badgeRow {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.indexNum {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--color-gold-light);
+  font-weight: 700;
+  border: 1px solid rgba(230, 200, 119, 0.3);
+  padding: 0.15rem 0.5rem;
+  border-radius: 2px;
+}
+
+.badgeText {
+  font-family: var(--font-sans);
+  font-size: var(--type-ui-label);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--color-gold-light);
+  font-weight: 600;
+}
+
+.headline {
+  font-family: var(--font-display-serif);
+  font-size: var(--type-h1);
+  color: var(--color-text-ivory);
+  line-height: 1.05;
+}
+
+.headlineItalic {
+  font-style: italic;
+  color: var(--color-gold-sheen);
+}
+
+.introPara {
+  font-size: var(--type-body-lg);
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+.contactDetailsBlock {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  padding: 1.5rem 0;
+  border-top: 1px solid rgba(230, 200, 119, 0.15);
+  border-bottom: 1px solid rgba(230, 200, 119, 0.15);
+}
+
+.contactPoint {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.metaLabel {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  color: var(--color-gold-light);
+}
+
+.metaLink {
+  font-family: var(--font-editorial-serif);
+  font-size: 1.15rem;
+  color: var(--color-text-ivory);
+  transition: color 0.3s;
+}
+
+.metaLink:hover {
+  color: var(--color-gold-sheen);
+}
+
+.metaAddress {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  line-height: 1.4;
+}
+
+/* WhatsApp Box */
+.whatsappBox {
+  margin-top: 0.5rem;
+}
+
+.waBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.9rem 1.6rem;
+  border-radius: 40px;
+  background: rgba(201, 162, 75, 0.15);
+  border: 1px solid rgba(230, 200, 119, 0.35);
+  color: var(--color-gold-sheen);
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  font-weight: 700;
+  transition: all 0.35s var(--ease-cinematic);
+}
+
+.waBtn:hover {
+  background: var(--color-gold-light);
+  color: var(--color-black-pure);
+  box-shadow: 0 0 25px rgba(201, 162, 75, 0.5);
+  transform: translateY(-2px);
+}
+
+/* Map Embed */
+.mapFrame {
+  width: 100%;
+  height: 220px;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid rgba(230, 200, 119, 0.2);
+  margin-top: 1rem;
+}
+
+.mapIframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  filter: grayscale(100%) invert(90%) contrast(1.2);
+}
+
+/* Right Form Column */
+.formCol {
+  background: rgba(11, 31, 58, 0.55);
+  border: 1px solid rgba(230, 200, 119, 0.25);
+  border-radius: 4px;
+  padding: clamp(2rem, 4vh, 3.5rem);
+  box-shadow: 0 20px 50px rgba(5, 5, 7, 0.8);
+  backdrop-filter: blur(12px);
+}
+
+.actualForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+}
+
+.formRow {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.inputLabel {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.15em;
+  color: var(--color-gold-light);
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.formInput,
+.formSelect,
+.formTextarea {
+  width: 100%;
+  background: rgba(5, 5, 7, 0.6);
+  border: 1px solid rgba(230, 200, 119, 0.2);
+  border-radius: 2px;
+  padding: 0.9rem 1.1rem;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  color: var(--color-text-ivory);
+  transition: all 0.3s ease;
+}
+
+.formInput:focus,
+.formSelect:focus,
+.formTextarea:focus {
+  outline: none;
+  border-color: var(--color-gold-light);
+  box-shadow: 0 0 15px rgba(230, 200, 119, 0.25);
+  background: rgba(5, 5, 7, 0.85);
+}
+
+.submitBtn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 1.2rem 2.2rem;
+  border-radius: 40px;
+  background: var(--grad-gold-metallic);
+  border: none;
+  color: var(--color-black-pure);
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 1rem;
+  box-shadow: 0 0 25px rgba(201, 162, 75, 0.5);
+  transition: all 0.4s var(--ease-cinematic);
+}
+
+.submitBtn:hover {
+  box-shadow: 0 0 40px rgba(230, 200, 119, 0.8);
+  transform: translateY(-2px);
+}
+
+.submitArrow {
+  font-size: 1.2rem;
+  transition: transform 0.3s;
+}
+
+.submitBtn:hover .submitArrow {
+  transform: translateX(6px);
+}
+
+/* Success Card */
+.successCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.5rem;
+  padding: 3rem 1rem;
+}
+
+.successIcon {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: var(--color-gold-light);
+  color: var(--color-black-pure);
+  font-size: 2.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 25px rgba(230, 200, 119, 0.6);
+}
+
+.successTitle {
+  font-family: var(--font-display-serif);
+  font-size: 2.4rem;
+  color: var(--color-text-ivory);
+}
+
+.successDesc {
+  font-size: var(--type-body-lg);
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  max-width: 500px;
+}
+
+.resetBtn {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  color: var(--color-gold-light);
+  border: 1px solid rgba(230, 200, 119, 0.3);
+  padding: 0.6rem 1.4rem;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+@media (max-width: 900px) {
+  .bookingWrapper {
+    grid-template-columns: 1fr;
+  }
+  .formRow {
+    grid-template-columns: 1fr;
+  }
+  .contactDetailsBlock {
+    grid-template-columns: 1fr;
+  }
+}

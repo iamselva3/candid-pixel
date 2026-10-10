@@ -1,0 +1,83 @@
+.marqueeSection {
+  position: relative;
+  width: 100vw;
+  min-height: 18vh;
+  display: flex;
+  align-items: center;
+  background-color: var(--color-navy-deep);
+  border-top: 1px solid rgba(230, 200, 119, 0.2);
+  border-bottom: 1px solid rgba(230, 200, 119, 0.2);
+  overflow: hidden;
+  padding: 2.5rem 0;
+}
+
+.marqueeFadeLeft,
+.marqueeFadeRight {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: clamp(3rem, 10vw, 10rem);
+  z-index: 5;
+  pointer-events: none;
+}
+
+.marqueeFadeLeft {
+  left: 0;
+  background: linear-gradient(90deg, var(--color-navy-deep), transparent);
+}
+
+.marqueeFadeRight {
+  right: 0;
+  background: linear-gradient(270deg, var(--color-navy-deep), transparent);
+}
+
+.marqueeTrack {
+  display: flex;
+  white-space: nowrap;
+  will-change: transform;
+}
+
+.marqueeItem {
+  display: inline-flex;
+  align-items: center;
+  gap: clamp(1.5rem, 3.5vw, 4rem);
+  padding: 0 clamp(1.5rem, 3vw, 3.5rem);
+}
+
+.itemOutline {
+  font-family: var(--font-display-serif);
+  font-size: clamp(2.4rem, 5.5vw, 5.5rem);
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: transparent;
+  -webkit-text-stroke: 1.2px rgba(237, 232, 220, 0.6);
+  transition: -webkit-text-stroke 0.3s;
+}
+
+.itemFilled {
+  font-family: var(--font-display-serif);
+  font-size: clamp(2.4rem, 5.5vw, 5.5rem);
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: var(--color-text-ivory);
+}
+
+.apertureSeparator {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(0deg);
+  animation: spinAperture 12s linear infinite;
+}
+
+@keyframes spinAperture {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@media (max-width: 768px) {
+  .marqueeSection {
+    min-height: 14vh;
+    padding: 1.8rem 0;
+  }
+}

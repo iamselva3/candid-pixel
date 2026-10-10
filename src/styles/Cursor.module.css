@@ -1,0 +1,115 @@
+.cursorWrapper {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 99998;
+  overflow: hidden;
+}
+
+.cursorDot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  background-color: var(--color-gold-light);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  transition: opacity 0.2s, transform 0.2s;
+  box-shadow: 0 0 10px rgba(230, 200, 119, 0.8);
+}
+
+.cursorRing {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(230, 200, 119, 0.45);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(0px);
+  transition: width 0.35s var(--ease-cinematic),
+              height 0.35s var(--ease-cinematic),
+              background-color 0.35s var(--ease-cinematic),
+              border-color 0.35s var(--ease-cinematic);
+}
+
+.cursorText {
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  font-weight: 700;
+  color: var(--color-black-pure);
+  text-transform: uppercase;
+  pointer-events: none;
+  animation: fadeIn 0.25s forwards;
+}
+
+/* Hover State */
+.cursorRing.hover {
+  width: 52px;
+  height: 52px;
+  border-color: var(--color-gold-sheen);
+  background-color: rgba(22, 53, 94, 0.2);
+}
+
+.cursorDot.hover {
+  transform: translate(-50%, -50%) scale(0.6);
+  background-color: var(--color-gold-sheen);
+}
+
+/* Play State (Cinematic Films / Showreel) */
+.cursorRing.play {
+  width: 90px;
+  height: 90px;
+  background-color: var(--color-gold-sheen);
+  border-color: transparent;
+  box-shadow: 0 0 25px rgba(230, 200, 119, 0.6);
+}
+
+.cursorDot.play {
+  opacity: 0;
+}
+
+/* Drag State (Horizontal Showcases & Quote Slider) */
+.cursorRing.drag {
+  width: 84px;
+  height: 84px;
+  background-color: var(--color-text-ivory);
+  border-color: transparent;
+  box-shadow: 0 0 20px rgba(237, 232, 220, 0.4);
+}
+
+.cursorDot.drag {
+  opacity: 0;
+}
+
+/* View State (Gallery Contact Sheet) */
+.cursorRing.view {
+  width: 80px;
+  height: 80px;
+  background-color: rgba(11, 31, 58, 0.85);
+  border-color: var(--color-gold-light);
+  backdrop-filter: blur(8px);
+}
+
+.cursorRing.view .cursorText {
+  color: var(--color-gold-light);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@media (pointer: coarse) {
+  .cursorWrapper {
+    display: none !important;
+  }
+}

@@ -1,0 +1,140 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background-color: var(--color-black-pure);
+  color: var(--color-text-ivory);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: auto; /* Handled via Lenis */
+}
+
+body {
+  background-color: var(--color-black-pure);
+  color: var(--color-text-ivory);
+  overflow-x: hidden;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100svh;
+  line-height: 1.5;
+  selection-background-color: var(--color-gold-base);
+}
+
+::selection {
+  background: var(--color-gold-base);
+  color: var(--color-black-pure);
+}
+
+/* Custom Sleek Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-black-pure);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-navy-glow);
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gold-deep);
+}
+
+/* Accessible Outline */
+:focus-visible {
+  outline: 1.5px solid var(--color-gold-light);
+  outline-offset: 3px;
+}
+
+/* Images & Media */
+img, video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Common Image Grading (Cinematic Navy/Gold Warmth) */
+.graded-image {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--color-navy-deep);
+}
+
+.graded-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: contrast(1.06) saturate(1.08) brightness(0.94);
+  transition: transform 0.8s var(--ease-cinematic), filter 0.8s var(--ease-cinematic);
+}
+
+.graded-image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at center, transparent 35%, rgba(5, 5, 7, 0.55) 100%);
+  mix-blend-mode: multiply;
+}
+
+/* Typography Base Classes */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display-serif);
+  font-weight: 400;
+  letter-spacing: -0.015em;
+  color: var(--color-text-ivory);
+  line-height: 1.05;
+}
+
+p {
+  color: var(--color-text-muted);
+}
+
+button {
+  font-family: var(--font-sans);
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Micro Tracked Badges & Labels */
+.ui-label {
+  font-family: var(--font-sans);
+  font-size: var(--type-ui-label);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--color-gold-light);
+  font-weight: 500;
+}
+
+/* Hairline Divider */
+.gold-hairline {
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, var(--color-gold-deep) 15%, var(--color-gold-light) 50%, var(--color-gold-deep) 85%, transparent 100%);
+  width: 100%;
+}
+
+/* Accessibility Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,203 @@
+.footerSection {
+  position: relative;
+  width: 100vw;
+  background-color: var(--color-black-pure);
+  padding: clamp(4rem, 8vh, 8rem) var(--section-padding-x) 2rem var(--section-padding-x);
+  border-top: 1px solid rgba(230, 200, 119, 0.18);
+  overflow: hidden;
+}
+
+.footerInner {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(4rem, 8vh, 7rem);
+}
+
+/* Top Colophon */
+.topColophon {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: clamp(2rem, 4vw, 4.5rem);
+}
+
+.studioBio {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 340px;
+}
+
+.footerSmallLogo {
+  height: 44px;
+  width: auto;
+  object-fit: contain;
+  align-self: flex-start;
+  mix-blend-mode: screen;
+}
+
+.bioText {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+.linksColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.colHeader {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--color-gold-light);
+  font-weight: 700;
+}
+
+.navLinksList,
+.socialList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.navLinksList a,
+.socialList a {
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+  transition: all 0.25s ease;
+}
+
+.navLinksList a:hover,
+.socialList a:hover {
+  color: var(--color-gold-sheen);
+  transform: translateX(4px);
+}
+
+/* GIANT LOGO STAGE WITH GOLD SHEEN SWEEP */
+.giantLogoContainer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 0;
+  overflow: hidden;
+}
+
+.goldSheenSweep {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(230, 200, 119, 0.45), transparent);
+  filter: blur(20px);
+  pointer-events: none;
+  z-index: 5;
+}
+
+.giantLogoImageWrap {
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  justify-content: center;
+}
+
+.giantLogoImage {
+  width: 100%;
+  height: auto;
+  max-height: 280px;
+  object-fit: contain;
+  mix-blend-mode: screen;
+  filter: contrast(1.15) brightness(1.05);
+}
+
+.studiosTracked {
+  font-family: var(--font-sans);
+  font-size: clamp(0.75rem, 1.4vw, 1.2rem);
+  letter-spacing: clamp(0.4em, 1vw, 0.8em);
+  color: var(--color-gold-light);
+  text-transform: uppercase;
+  margin-top: 1rem;
+  text-shadow: 0 0 15px rgba(201, 162, 75, 0.4);
+}
+
+/* Bottom Bar */
+.bottomBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(230, 200, 119, 0.12);
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.copyText {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  color: var(--color-text-dim);
+}
+
+.lensBadge {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  color: var(--color-gold-deep);
+  border: 1px solid rgba(230, 200, 119, 0.2);
+  padding: 0.2rem 0.6rem;
+  border-radius: 2px;
+}
+
+.backToTopBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.5rem 1.1rem;
+  border-radius: 30px;
+  background: rgba(11, 31, 58, 0.5);
+  border: 1px solid rgba(230, 200, 119, 0.3);
+  color: var(--color-gold-light);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  cursor: pointer;
+  transition: all 0.3s var(--ease-cinematic);
+}
+
+.backToTopBtn:hover {
+  background: var(--color-gold-light);
+  color: var(--color-black-pure);
+  box-shadow: 0 0 20px rgba(230, 200, 119, 0.6);
+  transform: translateY(-2px);
+}
+
+.backToTopBtn:hover svg circle,
+.backToTopBtn:hover svg path {
+  stroke: var(--color-black-pure);
+}
+
+@media (max-width: 992px) {
+  .topColophon {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .topColophon {
+    grid-template-columns: 1fr;
+  }
+  .bottomBar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

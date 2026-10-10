@@ -1,0 +1,157 @@
+.faqSection {
+  position: relative;
+  width: 100vw;
+  min-height: 90vh;
+  background-color: var(--color-black-pure);
+  padding: var(--section-padding-y) var(--section-padding-x);
+}
+
+.faqWrapper {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
+}
+
+.sectionHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  max-width: 700px;
+}
+
+.badgeRow {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.indexNum {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--color-gold-light);
+  font-weight: 700;
+  border: 1px solid rgba(230, 200, 119, 0.3);
+  padding: 0.15rem 0.5rem;
+  border-radius: 2px;
+}
+
+.badgeText {
+  font-family: var(--font-sans);
+  font-size: var(--type-ui-label);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--color-gold-light);
+  font-weight: 600;
+}
+
+.title {
+  font-family: var(--font-display-serif);
+  font-size: var(--type-h1);
+  color: var(--color-text-ivory);
+  line-height: 1;
+}
+
+/* Accordion */
+.accordionContainer {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid rgba(230, 200, 119, 0.18);
+}
+
+.accordionItem {
+  border-bottom: 1px solid rgba(230, 200, 119, 0.18);
+}
+
+.accordionHeaderBtn {
+  width: 100%;
+  padding: clamp(1.6rem, 2.8vh, 2.4rem) 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  transition: padding-left 0.3s var(--ease-cinematic);
+}
+
+.accordionHeaderBtn:hover {
+  padding-left: 0.8rem;
+}
+
+.questionIndex {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--color-gold-deep);
+  letter-spacing: 0.15em;
+  width: 40px;
+}
+
+.questionText {
+  flex: 1;
+  font-family: var(--font-editorial-serif);
+  font-size: clamp(1.3rem, 2.2vw, 2.2rem);
+  color: var(--color-text-ivory);
+  line-height: 1.25;
+  transition: color 0.3s;
+}
+
+.accordionItem.itemOpen .questionText,
+.accordionHeaderBtn:hover .questionText {
+  color: var(--color-gold-sheen);
+}
+
+/* Morph Plus to Cross Icon */
+.morphIcon {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.4s var(--ease-cinematic);
+}
+
+.morphH, .morphV {
+  position: absolute;
+  background-color: var(--color-gold-light);
+  border-radius: 1px;
+}
+
+.morphH {
+  width: 18px;
+  height: 1.5px;
+}
+
+.morphV {
+  width: 1.5px;
+  height: 18px;
+  transition: transform 0.4s var(--ease-cinematic);
+}
+
+.morphRotated {
+  transform: rotate(45deg);
+}
+
+.accordionContent {
+  overflow: hidden;
+}
+
+.answerText {
+  padding: 0 40px clamp(1.8rem, 3vh, 2.5rem) 40px;
+  font-family: var(--font-sans);
+  font-size: var(--type-body-lg);
+  line-height: 1.7;
+  color: var(--color-text-muted);
+  max-width: 880px;
+}
+
+@media (max-width: 768px) {
+  .answerText {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}

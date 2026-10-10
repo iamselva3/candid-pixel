@@ -1,0 +1,64 @@
+:root {
+  /* Strict Brand Colors */
+  --color-black-pure: #050507;
+  --color-black-surface: #0A0C12;
+  --color-black-elevated: #0F131C;
+
+  --color-navy-deep: #0B1F3A;
+  --color-navy-mid: #102A4C;
+  --color-navy-glow: #16355E;
+  --color-navy-border: rgba(22, 53, 94, 0.45);
+
+  --color-gold-deep: #8E6F2E;
+  --color-gold-base: #C9A24B;
+  --color-gold-light: #E6C877;
+  --color-gold-sheen: #F5E5B8;
+
+  /* Metallic Gradients (Linear + Conic Sheen) */
+  --grad-gold-metallic: linear-gradient(135deg, #8E6F2E 0%, #E6C877 35%, #C9A24B 65%, #F5E5B8 85%, #8E6F2E 100%);
+  --grad-gold-sheen: linear-gradient(90deg, transparent 0%, rgba(230, 200, 119, 0.5) 50%, transparent 100%);
+  --grad-gold-radial: radial-gradient(circle, #E6C877 0%, #C9A24B 50%, #8E6F2E 100%);
+  --grad-navy-glow: radial-gradient(circle at 50% 50%, rgba(22, 53, 94, 0.6) 0%, rgba(11, 31, 58, 0.3) 60%, transparent 100%);
+  --grad-vignette: radial-gradient(circle at center, transparent 40%, rgba(5, 5, 7, 0.85) 100%);
+
+  /* Typography Colors */
+  --color-text-ivory: #EDE8DC;
+  --color-text-muted: #9AA3B2;
+  --color-text-dim: #5E6778;
+
+  /* Fonts */
+  --font-display-serif: 'Bodoni Moda', 'Cormorant Garamond', Georgia, serif;
+  --font-editorial-serif: 'Cormorant Garamond', Garamond, serif;
+  --font-sans: 'Manrope', 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+
+  /* Fluid Clamp Typography */
+  --type-display-huge: clamp(4rem, 11vw, 14rem);
+  --type-display-hero: clamp(3rem, 7.5vw, 9rem);
+  --type-h1: clamp(2.5rem, 5vw, 6rem);
+  --type-h2: clamp(2rem, 3.8vw, 4.2rem);
+  --type-h3: clamp(1.4rem, 2.2vw, 2.4rem);
+  --type-body-lg: clamp(1.1rem, 1.4vw, 1.5rem);
+  --type-body: clamp(0.95rem, 1.1vw, 1.15rem);
+  --type-ui-label: clamp(0.7rem, 0.85vw, 0.85rem);
+  --type-micro: clamp(0.6rem, 0.7vw, 0.75rem);
+
+  /* Micro-Tracking */
+  --tracking-wide: 0.28em;
+  --tracking-wider: 0.42em;
+  --tracking-widest: 0.6em;
+
+  /* Halftone Pattern */
+  --pattern-halftone: radial-gradient(circle, #C9A24B 1.2px, transparent 1.2px);
+
+  /* Spacing & Layout */
+  --section-padding-x: clamp(1.5rem, 5vw, 6rem);
+  --section-padding-y: clamp(5rem, 10vh, 11rem);
+  --safe-bottom: env(safe-area-inset-bottom, 1rem);
+  --nav-height: 5.5rem;
+
+  /* Transitions & Timing */
+  --ease-cinematic: cubic-bezier(0.19, 1, 0.22, 1);
+  --ease-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-smooth: cubic-bezier(0.25, 1, 0.5, 1);
+}

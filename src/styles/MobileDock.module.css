@@ -1,0 +1,84 @@
+.dockWrapper {
+  position: fixed;
+  bottom: clamp(1rem, 2.5vh, 2rem);
+  bottom: calc(clamp(1rem, 2.5vh, 2rem) + env(safe-area-inset-bottom, 0px));
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 950;
+  display: none;
+  pointer-events: auto;
+}
+
+.dockPill {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: rgba(11, 31, 58, 0.75);
+  border: 1px solid rgba(230, 200, 119, 0.3);
+  box-shadow: 0 10px 30px rgba(5, 5, 7, 0.6), 0 0 20px rgba(201, 162, 75, 0.2);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  padding: 0.4rem 0.6rem;
+  border-radius: 40px;
+}
+
+.dockItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2rem;
+  min-width: 58px;
+  min-height: 44px; /* Accessible 44px touch target */
+  padding: 0.3rem 0.5rem;
+  border-radius: 24px;
+  background: none;
+  border: none;
+  color: var(--color-text-ivory);
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.25s var(--ease-cinematic);
+}
+
+.dockIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-gold-light);
+}
+
+.dockLabel {
+  font-family: var(--font-sans);
+  font-size: 0.55rem;
+  letter-spacing: 0.15em;
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+
+.dockItem:active {
+  background: rgba(22, 53, 94, 0.9);
+  transform: scale(0.95);
+}
+
+.dockItem:active .dockLabel {
+  color: var(--color-gold-sheen);
+}
+
+.whatsappHighlight {
+  background: rgba(201, 162, 75, 0.15);
+  border: 1px solid rgba(230, 200, 119, 0.35);
+}
+
+.whatsappHighlight .dockIcon {
+  color: var(--color-gold-sheen);
+}
+
+.whatsappHighlight .dockLabel {
+  color: var(--color-gold-light);
+}
+
+@media (max-width: 768px) {
+  .dockWrapper {
+    display: block;
+  }
+}

@@ -1,0 +1,229 @@
+.specSection {
+  position: relative;
+  width: 100vw;
+  min-height: 100vh;
+  background-color: var(--color-black-pure);
+  padding: var(--section-padding-y) var(--section-padding-x);
+}
+
+.specHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(230, 200, 119, 0.2);
+  margin-bottom: 1rem;
+}
+
+.headerLeft {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.headerIndex {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--color-gold-light);
+  font-weight: 700;
+  border: 1px solid rgba(230, 200, 119, 0.3);
+  padding: 0.15rem 0.5rem;
+  border-radius: 2px;
+}
+
+.headerTitle {
+  font-family: var(--font-sans);
+  font-size: var(--type-ui-label);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--color-gold-light);
+  font-weight: 600;
+}
+
+.headerMeta {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  color: var(--color-text-dim);
+}
+
+/* Service Items List */
+.specList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.specItem {
+  position: relative;
+  padding: clamp(0.9rem, 1.8vh, 1.5rem) 0;
+  border-bottom: 1px solid rgba(230, 200, 119, 0.12);
+  cursor: pointer;
+  transition: padding-left 0.4s var(--ease-cinematic), background-color 0.4s ease;
+}
+
+.rowMain {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.serviceNumber {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--color-gold-deep);
+  letter-spacing: 0.15em;
+  width: 55px;
+}
+
+.serviceName {
+  flex: 1;
+  font-family: var(--font-display-serif);
+  font-size: clamp(1.25rem, 2.2vw, 2.2rem);
+  color: var(--color-text-ivory);
+  font-weight: 400;
+  line-height: 1.15;
+  transition: color 0.35s ease, transform 0.4s var(--ease-cinematic);
+}
+
+.serviceArrow {
+  font-size: 1.35rem;
+  color: var(--color-gold-light);
+  opacity: 0;
+  transform: translateX(-15px);
+  transition: all 0.35s var(--ease-cinematic);
+}
+
+.specMetaDesktop {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 60px;
+  padding-top: 0.6rem;
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+}
+
+.specSpecs {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--color-gold-deep);
+  letter-spacing: 0.1em;
+}
+
+/* Desktop Hover States */
+.specItem:hover {
+  padding-left: 1.5rem;
+}
+
+.specItem:hover .serviceName {
+  color: var(--color-gold-sheen);
+  font-style: italic;
+  transform: translateX(10px);
+}
+
+.specItem:hover .serviceArrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Floating Image Container (Desktop) */
+.floatingImgContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 340px;
+  height: 440px;
+  pointer-events: none;
+  z-index: 100;
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.85);
+  transition: opacity 0.35s ease, transform 0.35s var(--ease-cinematic);
+}
+
+.floatingImgContainer.visible {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.floatingImgInner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 30px 60px rgba(5, 5, 7, 0.9), 0 0 20px rgba(201, 162, 75, 0.2);
+  border: 1px solid rgba(230, 200, 119, 0.3);
+}
+
+.floatingImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+}
+
+/* Halftone Dot Overlay Effect */
+.halftoneOverlay {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, #C9A24B 1.2px, transparent 1.2px);
+  background-size: 6px 6px;
+  opacity: 0.3;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+
+.floatingVignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, transparent 30%, rgba(5, 5, 7, 0.6) 100%);
+  pointer-events: none;
+}
+
+/* Mobile Expanded Views */
+.mobileExpandedView {
+  display: none;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px dashed rgba(230, 200, 119, 0.2);
+}
+
+.mobileImg {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center 20%;
+  border-radius: 4px;
+}
+
+.mobileTagline {
+  font-family: var(--font-editorial-serif);
+  font-size: 1.15rem;
+  color: var(--color-text-ivory);
+}
+
+.mobileSpecs {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--color-gold-light);
+  letter-spacing: 0.1em;
+}
+
+@media (max-width: 900px) {
+  .floatingImgContainer {
+    display: none !important;
+  }
+  .specMetaDesktop {
+    display: none;
+  }
+  .mobileExpandedView {
+    display: flex;
+  }
+  .serviceName {
+    font-size: clamp(1.15rem, 4.5vw, 1.7rem);
+  }
+}

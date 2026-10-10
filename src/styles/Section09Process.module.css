@@ -1,0 +1,174 @@
+.processSection {
+  position: relative;
+  width: 100vw;
+  min-height: 100vh;
+  background-color: var(--color-navy-deep);
+  padding: var(--section-padding-y) var(--section-padding-x);
+}
+
+.processWrapper {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.sectionHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  max-width: 700px;
+}
+
+.badgeRow {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.indexNum {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--color-gold-light);
+  font-weight: 700;
+  border: 1px solid rgba(230, 200, 119, 0.3);
+  padding: 0.15rem 0.5rem;
+  border-radius: 2px;
+}
+
+.badgeText {
+  font-family: var(--font-sans);
+  font-size: var(--type-ui-label);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--color-gold-light);
+  font-weight: 600;
+}
+
+.title {
+  font-family: var(--font-display-serif);
+  font-size: var(--type-h1);
+  color: var(--color-text-ivory);
+  line-height: 1;
+}
+
+.subtitle {
+  font-size: var(--type-body-lg);
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+/* Timeline Layout */
+.timelineStage {
+  position: relative;
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: clamp(2rem, 4vw, 4rem);
+}
+
+.lineContainer {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+}
+
+.timelineLine {
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, var(--color-gold-light) 0%, var(--color-gold-base) 70%, var(--color-gold-deep) 100%);
+  transform-origin: top;
+  box-shadow: 0 0 12px rgba(230, 200, 119, 0.6);
+}
+
+.rotatingLensRing {
+  position: sticky;
+  top: 45vh;
+  width: 46px;
+  height: 46px;
+  z-index: 5;
+  filter: drop-shadow(0 0 12px rgba(201, 162, 75, 0.7));
+}
+
+.stepsList {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(3rem, 6vh, 5.5rem);
+}
+
+.processStep {
+  display: flex;
+  gap: clamp(1.5rem, 3vw, 3rem);
+  align-items: flex-start;
+  padding: 1.5rem 2rem;
+  background: rgba(11, 31, 58, 0.45);
+  border: 1px solid rgba(230, 200, 119, 0.18);
+  border-radius: 4px;
+  transition: all 0.35s ease;
+}
+
+.processStep:hover {
+  border-color: var(--color-gold-light);
+  background: rgba(22, 53, 94, 0.6);
+  transform: translateX(8px);
+}
+
+.fStopBadgeBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  min-width: 90px;
+  padding: 0.6rem 0.8rem;
+  background: rgba(5, 5, 7, 0.6);
+  border: 1px solid rgba(230, 200, 119, 0.3);
+  border-radius: 2px;
+}
+
+.fStopLabel {
+  font-family: var(--font-mono);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--color-gold-light);
+}
+
+.stepTiming {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  color: var(--color-text-dim);
+  text-transform: uppercase;
+}
+
+.stepCardContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.stepName {
+  font-family: var(--font-display-serif);
+  font-size: clamp(1.6rem, 2.4vw, 2.4rem);
+  color: var(--color-text-ivory);
+  line-height: 1.1;
+}
+
+.stepDesc {
+  font-size: var(--type-body);
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .timelineStage {
+    grid-template-columns: 1fr;
+  }
+  .lineContainer {
+    display: none;
+  }
+  .processStep {
+    flex-direction: column;
+    padding: 1.2rem;
+  }
+}

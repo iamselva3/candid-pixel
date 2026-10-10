@@ -1,0 +1,202 @@
+.quotesSection {
+  position: relative;
+  width: 100vw;
+  min-height: 90vh;
+  background-color: var(--color-black-pure);
+  padding: var(--section-padding-y) var(--section-padding-x);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quotesWrapper {
+  max-width: 1100px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(230, 200, 119, 0.15);
+  padding-bottom: 1.5rem;
+}
+
+.badgeRow {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.indexNum {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--color-gold-light);
+  font-weight: 700;
+  border: 1px solid rgba(230, 200, 119, 0.3);
+  padding: 0.15rem 0.5rem;
+  border-radius: 2px;
+}
+
+.badgeText {
+  font-family: var(--font-sans);
+  font-size: var(--type-ui-label);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--color-gold-light);
+  font-weight: 600;
+}
+
+.dragPrompt {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  color: var(--color-text-dim);
+}
+
+.quoteCardContainer {
+  position: relative;
+  min-height: 380px;
+  display: flex;
+  align-items: center;
+}
+
+.quoteCard {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+  cursor: grab;
+  user-select: none;
+}
+
+.quoteCard:active {
+  cursor: grabbing;
+}
+
+.quoteMarks {
+  font-family: var(--font-display-serif);
+  font-size: 7rem;
+  line-height: 0.4;
+  color: var(--color-gold-deep);
+  opacity: 0.45;
+}
+
+.quoteEnglish {
+  font-family: var(--font-editorial-serif);
+  font-size: clamp(1.8rem, 3.8vw, 3.4rem);
+  line-height: 1.22;
+  color: var(--color-text-ivory);
+  font-weight: 400;
+}
+
+.starsRow {
+  display: flex;
+  gap: 0.35rem;
+}
+
+.starGlyph {
+  color: var(--color-gold-light);
+  font-size: 1.2rem;
+  text-shadow: 0 0 10px rgba(230, 200, 119, 0.7);
+}
+
+/* Author Row */
+.authorRow {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(230, 200, 119, 0.12);
+}
+
+.authorAvatarBox {
+  position: relative;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid rgba(230, 200, 119, 0.4);
+}
+
+.authorAvatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.avatarGoldRing {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  box-shadow: inset 0 0 8px rgba(230, 200, 119, 0.5);
+  pointer-events: none;
+}
+
+.authorMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.authorName {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-text-ivory);
+  letter-spacing: 0.05em;
+}
+
+.authorRole {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  color: var(--color-text-muted);
+}
+
+/* Controls */
+.sliderControls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(230, 200, 119, 0.15);
+}
+
+.navArrow {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  color: var(--color-gold-light);
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.25s ease;
+}
+
+.navArrow:hover {
+  color: var(--color-gold-sheen);
+}
+
+.sliderDots {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.dotBtn {
+  width: 28px;
+  height: 2px;
+  background-color: rgba(230, 200, 119, 0.2);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dotBtn.activeDot {
+  background-color: var(--color-gold-light);
+  box-shadow: 0 0 8px rgba(230, 200, 119, 0.8);
+}

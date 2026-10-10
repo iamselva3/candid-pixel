@@ -1,0 +1,231 @@
+.aboutSection {
+  position: relative;
+  width: 100vw;
+  min-height: 100vh;
+  background-color: var(--color-navy-deep);
+  padding: var(--section-padding-y) var(--section-padding-x);
+  overflow: hidden;
+}
+
+.aboutGrid {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: clamp(3rem, 6vw, 7rem);
+  align-items: center;
+}
+
+/* Left Column */
+.textCol {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+}
+
+.sectionBadge {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.badgeIndex {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--color-gold-light);
+  font-weight: 700;
+  border: 1px solid rgba(230, 200, 119, 0.3);
+  padding: 0.15rem 0.5rem;
+  border-radius: 2px;
+}
+
+.badgeLabel {
+  font-family: var(--font-sans);
+  font-size: var(--type-ui-label);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--color-gold-light);
+  font-weight: 600;
+}
+
+.aboutHeading {
+  font-size: var(--type-h1);
+  line-height: 1.08;
+}
+
+.headingItalic {
+  font-style: italic;
+  color: var(--color-gold-sheen);
+}
+
+.aboutBody {
+  font-size: var(--type-body-lg);
+  line-height: 1.7;
+  color: var(--color-text-muted);
+}
+
+/* Stats Counter Grid */
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  padding: 2rem 0;
+  border-top: 1px solid rgba(230, 200, 119, 0.15);
+  border-bottom: 1px solid rgba(230, 200, 119, 0.15);
+}
+
+.statCard {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.statValue {
+  font-family: var(--font-display-serif);
+  font-size: clamp(2.5rem, 4vw, 3.8rem);
+  color: var(--color-text-ivory);
+  line-height: 1;
+  font-weight: 500;
+}
+
+.statSuffix {
+  color: var(--color-gold-light);
+  font-size: 0.6em;
+  margin-left: 0.2rem;
+}
+
+.statLabel {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-ivory);
+}
+
+.statCode {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  color: var(--color-gold-deep);
+}
+
+/* Founder Note */
+.founderNote {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  padding: 1.5rem;
+  border-left: 2px solid var(--color-gold-light);
+  background: rgba(11, 31, 58, 0.3);
+}
+
+.founderQuote {
+  font-family: var(--font-editorial-serif);
+  font-size: 1.25rem;
+  font-style: italic;
+  color: var(--color-text-ivory);
+  line-height: 1.5;
+}
+
+.signatureRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.founderName {
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--color-gold-light);
+  font-weight: 600;
+  display: block;
+}
+
+.founderTitle {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  color: var(--color-text-muted);
+  display: block;
+}
+
+.handwrittenSig {
+  font-family: 'Brush Script MT', 'Cormorant Garamond', cursive;
+  font-size: 2.2rem;
+  color: var(--color-gold-sheen);
+  opacity: 0.85;
+}
+
+/* Right Image Asymmetric Composition */
+.imageCol {
+  position: relative;
+  height: 640px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.imageFrameLead {
+  position: absolute;
+  top: 5%;
+  left: 0;
+  width: 78%;
+  height: 68%;
+  border-radius: 2px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(5, 5, 7, 0.6);
+  border: 1px solid rgba(230, 200, 119, 0.2);
+  z-index: 2;
+}
+
+.imageFrameSecondary {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 65%;
+  height: 55%;
+  border-radius: 2px;
+  overflow: hidden;
+  box-shadow: 0 25px 50px rgba(5, 5, 7, 0.8);
+  border: 1px solid rgba(230, 200, 119, 0.3);
+  z-index: 3;
+}
+
+.aboutImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+  filter: contrast(1.08) brightness(0.95);
+  transition: transform 0.8s var(--ease-cinematic);
+}
+
+.imageFrameLead:hover .aboutImg,
+.imageFrameSecondary:hover .aboutImg {
+  transform: scale(1.05);
+}
+
+.imageCaptionBadge {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  background: rgba(5, 5, 7, 0.8);
+  backdrop-filter: blur(6px);
+  padding: 0.25rem 0.65rem;
+  border-radius: 2px;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.15em;
+  color: var(--color-gold-light);
+}
+
+@media (max-width: 992px) {
+  .aboutGrid {
+    grid-template-columns: 1fr;
+    gap: 3.5rem;
+  }
+  .imageCol {
+    height: 480px;
+  }
+}
