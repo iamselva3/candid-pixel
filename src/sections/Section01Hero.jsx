@@ -9,7 +9,7 @@ import styles from '../styles/Section01Hero.module.css';
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function Section01Hero() {
+export default function Section01Hero({ isSplashActive = false }) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [timecode, setTimecode] = useState('00:04:12:18');
   const [isLocked, setIsLocked] = useState(false);
@@ -43,10 +43,15 @@ export default function Section01Hero() {
     return () => clearInterval(interval);
   }, []);
 
-  // Autofocus box hunt & lock animation + shutter flash
+  // Autofocus box hunt & lock animation + shutter flash (triggers once splash fades out)
   useGSAP(() => {
+    if (isSplashActive) {
+      gsap.set('.' + styles.editorialBlock, { opacity: 0, y: 25 });
+      return;
+    }
+
     const tl = gsap.timeline({
-      delay: 0.6,
+      delay: 0.2,
       onComplete: () => setIsLocked(true)
     });
 
@@ -69,7 +74,7 @@ export default function Section01Hero() {
       ease: 'back.out(2)'
     });
 
-    // 3. Shutter flash & image unblur
+    // 3. Shutter flash & image unblur (capturing the main hero image)
     tl.fromTo('.' + styles.shutterFlash,
       { opacity: 0 },
       { opacity: 0.8, duration: 0.06, yoyo: true, repeat: 1 },
@@ -88,15 +93,16 @@ export default function Section01Hero() {
       { opacity: 1, y: 0, duration: 0.9, ease: 'power3.out' },
       '-=0.4'
     );
-  }, { scope: heroRef });
+  }, { scope: heroRef, dependencies: [isSplashActive] });
 
-  // Cycle through hero slides with iris wipe
+  // Cycle through hero slides with iris wipe (starts after splash is completed)
   useEffect(() => {
+    if (isSplashActive) return;
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % content.hero.length);
     }, 7000);
     return () => clearInterval(timer);
-  }, []);
+  }, [isSplashActive]);
 
   const slide = content.hero[currentSlide];
 

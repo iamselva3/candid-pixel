@@ -112,7 +112,7 @@ export default function App() {
 
       {/* Main Viewport: All 16 Sections in Strict Sequence */}
       <main id="main-content">
-        <Section01Hero />
+        <Section01Hero isSplashActive={showSplash} />
         <Section02Marquee />
         <Section03Manifesto />
         <Section04About />
