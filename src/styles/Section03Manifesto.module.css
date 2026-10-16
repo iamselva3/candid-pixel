@@ -1,55 +1,89 @@
 .manifestoSection {
   position: relative;
   width: 100vw;
-  min-height: 80vh;
+  background-color: var(--color-black-pure);
+}
+
+/* Pinned stage: fills the screen while the three beats play out. */
+.stage {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--color-black-pure);
-  padding: var(--section-padding-y) var(--section-padding-x);
+  padding: calc(var(--nav-height) + 1rem) var(--section-padding-x) 3rem;
+  overflow: hidden;
+  background:
+    radial-gradient(120% 80% at 50% 120%, rgba(22, 53, 94, 0.55) 0%, transparent 60%),
+    var(--color-black-pure);
+}
+
+/* Slow gold-and-navy aurora behind the words. */
+.halo {
+  position: absolute;
+  width: min(70vw, 900px);
+  aspect-ratio: 1;
+  left: 50%;
+  top: 50%;
+  translate: -50% -50%;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, rgba(201, 162, 75, 0.16), rgba(22, 53, 94, 0.35), rgba(230, 200, 119, 0.1), rgba(11, 31, 58, 0.4), rgba(201, 162, 75, 0.16));
+  filter: blur(90px);
+  animation: haloSpin 26s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes haloSpin {
+  to { rotate: 360deg; }
 }
 
 .manifestoWrapper {
-  max-width: 1100px;
+  position: relative;
+  z-index: 1;
+  max-width: 1180px;
   width: 100%;
   display: grid;
-  grid-template-columns: 60px 1fr;
-  gap: clamp(2rem, 5vw, 5rem);
-  align-items: flex-start;
+  grid-template-columns: 60px minmax(0, 1fr);
+  gap: clamp(1.5rem, 5vw, 5rem);
+  align-items: stretch;
 }
 
 .hairlineCol {
-  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100%;
-  min-height: 380px;
-}
-
-.verticalHairline {
-  width: 1.5px;
-  height: 100%;
-  background: linear-gradient(180deg, var(--color-gold-light) 0%, var(--color-gold-deep) 60%, transparent 100%);
-  transform-origin: top;
-  box-shadow: 0 0 10px rgba(230, 200, 119, 0.4);
+  gap: 1rem;
 }
 
 .manifestoIndex {
-  position: absolute;
-  top: 0;
   font-family: var(--font-mono);
   font-size: 0.75rem;
   letter-spacing: 0.2em;
   color: var(--color-gold-light);
-  background-color: var(--color-black-pure);
-  padding: 0.2rem 0;
+}
+
+.progressTrack {
+  position: relative;
+  flex: 1;
+  width: 1.5px;
+  min-height: 260px;
+  background: rgba(230, 200, 119, 0.12);
+}
+
+.progressFill {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, var(--color-gold-sheen) 0%, var(--color-gold-base) 55%, var(--color-gold-deep) 100%);
+  box-shadow: 0 0 12px rgba(230, 200, 119, 0.55);
+  transform-origin: top;
+  transform: scaleY(0);
 }
 
 .contentCol {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: clamp(1.4rem, 3vh, 2.4rem);
 }
 
 .preHeading {
@@ -61,26 +95,93 @@
   font-weight: 600;
 }
 
-.manifestoParagraph {
-  font-family: var(--font-editorial-serif);
-  font-size: clamp(2rem, 4.4vw, 4.5rem);
-  line-height: 1.22;
+.beats {
+  display: flex;
+  flex-direction: column;
+  gap: 0.05em;
+  font-family: var(--font-display-serif);
+  font-size: clamp(2.7rem, 6.1vw, 7.4rem);
+  line-height: 1.02;
+  letter-spacing: -0.025em;
   font-weight: 400;
-  letter-spacing: -0.01em;
+  color: var(--color-text-ivory);
 }
 
-.manifestoWord {
+.beat {
+  display: block;
+  will-change: opacity, filter;
+}
+
+/* Each word clips its letters so they rise out of an invisible baseline. */
+.wordMask {
   display: inline-block;
-  margin-right: 0.32em;
-  transition: color 0.2s ease, opacity 0.2s ease;
+  overflow: hidden;
+  vertical-align: top;
+  padding: 0.04em 0.02em 0.14em;
+  margin: -0.04em 0.2em -0.14em 0;
+}
+
+.unit {
+  display: inline-block;
+  position: relative;
+  transform-origin: 0% 100%;
+  will-change: transform, opacity;
+}
+
+.italic {
+  font-style: italic;
+  color: var(--color-gold-sheen);
+}
+
+/* Metallic gold with a light sweep that keeps travelling across it. */
+.gold {
+  font-style: italic;
+  background: linear-gradient(100deg, #8e6f2e 0%, #e6c877 22%, #fff4d6 32%, #c9a24b 44%, #f5e5b8 60%, #8e6f2e 80%, #e6c877 100%);
+  background-size: 260% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: goldSweep 5.5s ease-in-out infinite;
+  filter: drop-shadow(0 0 18px rgba(230, 200, 119, 0.28));
+}
+
+@keyframes goldSweep {
+  0% { background-position: 100% 0; }
+  60%, 100% { background-position: 0% 0; }
+}
+
+.strikeWord {
+  color: var(--color-text-dim);
+}
+
+/* Hand-drawn gold line through "pose". */
+.strikeLine {
+  position: absolute;
+  left: -4%;
+  right: -4%;
+  top: 54%;
+  height: 0.075em;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--color-gold-deep), var(--color-gold-light) 40%, var(--color-gold-sheen));
+  box-shadow: 0 0 14px rgba(230, 200, 119, 0.7);
+  transform-origin: left center;
+  rotate: -4deg;
+}
+
+.closing {
+  max-width: 46ch;
+  font-family: var(--font-editorial-serif);
+  font-size: clamp(1.15rem, 1.6vw, 1.55rem);
+  line-height: 1.55;
+  color: var(--color-text-muted);
 }
 
 .subMetadata {
   display: flex;
   align-items: center;
-  gap: 2.5rem;
+  gap: 1rem 2.5rem;
   flex-wrap: wrap;
-  padding-top: 1.5rem;
+  padding-top: 1.4rem;
   border-top: 1px solid rgba(230, 200, 119, 0.15);
 }
 
@@ -99,15 +200,37 @@
   height: 5px;
   border-radius: 50%;
   background-color: var(--color-gold-light);
-  box-shadow: 0 0 6px var(--color-gold-light);
+  box-shadow: 0 0 8px var(--color-gold-light);
+  animation: dotPulse 2.4s ease-in-out infinite;
+}
+
+@keyframes dotPulse {
+  50% { box-shadow: 0 0 2px var(--color-gold-light); opacity: 0.6; }
 }
 
 @media (max-width: 768px) {
-  .manifestoWrapper {
-    grid-template-columns: 30px 1fr;
-    gap: 1.5rem;
+  .stage {
+    padding-top: calc(var(--nav-height) + 0.5rem);
   }
-  .manifestoParagraph {
-    font-size: clamp(1.7rem, 6.5vw, 2.6rem);
+  .manifestoWrapper {
+    grid-template-columns: 22px minmax(0, 1fr);
+    gap: 1rem;
+  }
+  .beats {
+    font-size: clamp(2.6rem, 12.6vw, 4.4rem);
+  }
+  .halo {
+    width: 120vw;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .halo,
+  .gold,
+  .metaDot {
+    animation: none;
+  }
+  .progressFill {
+    transform: scaleY(1);
   }
 }
